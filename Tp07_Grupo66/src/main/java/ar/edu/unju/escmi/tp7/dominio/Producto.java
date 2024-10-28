@@ -1,10 +1,21 @@
 package ar.edu.unju.escmi.tp7.dominio;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "productos")
 public class Producto {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String descripcion; 
+	
 	private double precioUnitario;
+	
 	private Long cantidad;
+	
+	@Column(columnDefinition = "BOOLEAN")
 	private boolean estado;
 	
 	public Producto(Long id, String descripcion, double precioUnitario, Long cantidad, boolean estado) {
