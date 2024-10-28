@@ -1,8 +1,17 @@
 package ar.edu.unju.escmi.tp7.dominio;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "detalles_factura")
 public class DetalleFactura extends Factura{
+	
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "producto_id")
 	private Producto producto;
+	
 	private int cantidad;
+	
 	private double subTotal;
 	
 	public DetalleFactura() {

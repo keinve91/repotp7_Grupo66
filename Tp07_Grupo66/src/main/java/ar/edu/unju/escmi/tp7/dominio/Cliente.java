@@ -1,12 +1,27 @@
 package ar.edu.unju.escmi.tp7.dominio;
 
+import java.util.Objects;
+
+import javax.persistence.*;
+
+@Entity
 public class Cliente {
-	private Long id; 
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	
 	private String nombre;
 	private String apellido; 
 	private String domicilio; 
+	
+	@Column(unique = true, nullable = false)
 	private int dni;
+	
+	@Column(columnDefinition = "BOOLEAN")
 	private boolean estado;
+	
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
