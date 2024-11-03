@@ -18,9 +18,8 @@ public class Producto {
 	@Column(columnDefinition = "BOOLEAN")
 	private boolean estado;
 	
-	public Producto(Long id, String descripcion, double precioUnitario, Long cantidad, boolean estado) {
+	public Producto(String descripcion, double precioUnitario, Long cantidad, boolean estado) {
 		super();
-		this.id = id;
 		this.descripcion = descripcion;
 		this.precioUnitario = precioUnitario;
 		this.cantidad = cantidad;
