@@ -25,9 +25,8 @@ public class Cliente {
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
-	public Cliente(Long id, String nombre, String apellido, String domicilio, int dni, boolean estado) {
+	public Cliente(String nombre, String apellido, String domicilio, int dni, boolean estado) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.domicilio = domicilio;

@@ -5,15 +5,14 @@ import ar.edu.unju.escmi.tp7.dao.ProductoDAO;
 import ar.edu.unju.escmi.tp7.dominio.Producto;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 public class ProductoDAOImpl implements ProductoDAO {
-	private static EntityManager manager = EmfSingleton.getInstance().getEmf().createEntityManager();
-	
-	@Override
+    private static EntityManager manager = EmfSingleton.getInstance().getEmf().createEntityManager();
+    
+    @Override
     public void guardar(Producto producto) {
         EntityTransaction transaction = manager.getTransaction();
         try {
@@ -25,8 +24,6 @@ public class ProductoDAOImpl implements ProductoDAO {
                 transaction.rollback();
             }
             System.out.println("No se pudo guardar el producto");
-        }finally {
-        	manager.close();
         }
     }
 
@@ -42,8 +39,6 @@ public class ProductoDAOImpl implements ProductoDAO {
                 transaction.rollback();
             }
             System.out.println("No se pudo actualizar el producto");
-        }finally {
-        	manager.close();
         }
     }
 
@@ -62,17 +57,17 @@ public class ProductoDAOImpl implements ProductoDAO {
                 transaction.rollback();
             }
             System.out.println("No se pudo eliminar el producto");
-        }finally {
-        	manager.close();
         }
     }
+
     @Override
-    public List<Producto> obtenerProductos(){
-    	TypedQuery<Producto> query = manager.createQuery("SELECT p FROM Producto p", Producto.class);
+    public List<Producto> obtenerProductos() {
+        TypedQuery<Producto> query = manager.createQuery("SELECT p FROM Producto p", Producto.class);
         return query.getResultList();
     }
+
     @Override
     public Producto obtenerProducto(Long id) {
-    	return manager.find(Producto.class, id);
+        return manager.find(Producto.class, id);
     }
-  }
+}
